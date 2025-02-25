@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .navbar {
+            background: black;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .contact-icons img {
+        width: 35px; 
+        height: 35px;
+        margin: 10px;
+
+        }
+        .container {
+            max-width: 1100px;
+            margin: 100px auto;
+            background: rgba(50, 50, 50, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .problem-card {
+            background: #444;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+        .problem-card:hover {
+            transform: scale(1.05);
+        }
+        .problem-card button {
+            margin-top: 10px;
+            padding: 10px 10px;
+            background: #666666;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: rgb(25, 168, 230);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+            color: white;
+            z-index: 1000;
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+        }
+        .modal iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        .modal .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .about {
+            font-size: 20px;
+
+            text-align: left;
+            top:10px;
+
+
+        }
+
+    </style>
+    <script>
+        function showModal(videoUrl, description) {
+            const modal = document.getElementById("modal");
+            const modalVideo = document.getElementById("modalVideo");
+            const modalDescription = document.getElementById("modalDescription");
+    
+            modal.style.display = "block";
+            modalVideo.style.display = "block"; // מבטיח שהווידאו יוצג
+            modalVideo.src = videoUrl;
+            modalDescription.textContent = description;
+        }
+    
+        function showDescription(description) {
+            const modal = document.getElementById("modal");
+            const modalVideo = document.getElementById("modalVideo");
+            const modalDescription = document.getElementById("modalDescription");
+    
+            modal.style.display = "block";
+            modalVideo.style.display = "none"; // מסתיר את הווידאו אם תיאור נבחר
+            modalDescription.textContent = description;
+        }
+    
+        function closeModal() {
+            const modal = document.getElementById("modal");
+            const modalVideo = document.getElementById("modalVideo");
+    
+            modal.style.display = "none";
+            modalVideo.src = ""; // עוצר את הסרטון כאשר סוגרים את החלון
+            modalVideo.style.display = "block"; // מבטיח שהווידאו יופיע מחדש בפעם הבאה
+        }
+        function copyEmail() {
+        const email = "yehudity15@gmail.com"; // כתובת המייל שלך
+        navigator.clipboard.writeText(email).then(() => {
+            alert("Email copied to clipboard!");
+        }).catch(err => {
+            console.error("Failed to copy: ", err);
+        });
+        }
+
+    </script>
+    
+</head>
+<body>
+    <div class="navbar">
+        <a href="#about">About Me</a>
+        <a href="#leetcode">LeetCode</a>
+        <a href="#binary-exploits">Binary Exploits</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="container section" id="about">
+        <h1>About Me</h1>
+        <p class="about me">I'm Yehudit Yudelevich, a computer science student with a strong interest in cybersecurity and software development, especially in low-level programming.
+            I enjoy learning about binary exploitation, reverse engineering, and system security.
+
+            I have experience working with C, C++, Python, and Java.
+
+            I have some knowledge of Linux operating systems and like to explore how things work under the hood.
+
+            I also create animations to help explain technical concepts in a more visual and intuitive way.
+            
+            I'm always looking to expand my knowledge, work on interesting projects, and improve my skills in both cybersecurity and development.</p>
+    </div>
+
+    <div class="container section" id="leetcode">
+        <h1>LeetCode Problem Animations</h1>
+        <div class="grid">
+            <div class="problem-card">
+                <p>Product of Array Except Self</p>
+                <button onclick="showModal('https://drive.google.com/file/d/1pSfu63jkT7JC48DiPVvjkoGfrmMcfHk0/preview', 'Product of Array Except Self.')">Watch Animation</button>
+                <button onclick="showDescription('Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i]. The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer. You must write an algorithm that runs in O(n) time and without using the division operation.')">View Description</button>
+
+            </div>
+            <div class="problem-card">
+                <p>Majority Element</p>
+                <button onclick="showModal('https://drive.google.com/file/d/14eyHWyHDDjoWTnH5zA39e3jFeBPygHe7/preview', 'Majority Element.')">
+                    Watch Animation
+                </button>
+                <button onclick="showDescription('Given an array nums of size n, return the majority element. The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.')">View Description</button>
+
+            </div>
+            
+            <div class="problem-card">
+                <p>Linked List Cycle</p>
+                <button onclick="showModal('https://drive.google.com/file/d/1vVoTdzjEcXk5YToqkP883BpZF2h5uVlZ/preview', 'Linked List Cycle.')">Watch Animation</button>
+                <button onclick="showDescription('The question:\nGiven head, the head of a linked list, determine if the linked list has a cycle in it. There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail\'s next pointer is connected to. Note that pos is not passed as a parameter. Return true if there is a cycle in the linked list. Otherwise, return false.')">View Description</button>
+
+            </div>
+            <div class="problem-card">
+                <p>Two Sum </p>
+                <button onclick="showModal('https://drive.google.com/file/d/1aii8wjfggecd8lgqSY_yH8sl84aRIN0R/preview', 'Two Sum : Find two numbers that add up to a specific target.')">Watch Animation</button>
+                <button onclick="showDescription('Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.')">View Description</button>
+
+            </div>
+            <div class="problem-card">
+                <p>Bulb Switcher</p>
+                <button onclick="showModal('https://drive.google.com/file/d/1V_lxPda0oZA7QwxoH5k2nFDvSiub0hOS/preview', 'Bulb Switcher.')">Watch Animation</button>
+                <button onclick="showDescription('There are n bulbs that are initially off. You first turn on all the bulbs, then you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it is off or turning off if it is on). For the ith round, you toggle every i bulb. For the nth round, you only toggle the last bulb. Return the number of bulbs that are on after n rounds.')">View Description</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="container section" id="binary-exploits">
+        <h1>Binary Exploits Animations</h1>
+        <div class="grid">
+            <div class="problem-card">
+                <p>Use After Free (UAF)</p>
+                <button onclick="showModal('https://drive.google.com/file/d/1Xa_OqTphZEABBxSUesp_UAXj-tWKM0lm/preview', 'Use After Free (UAF) vulnerability explained.')">Watch Animation</button>
+                <button onclick="showDescription('Use After Free (UAF) is a memory vulnerability that occurs when a program continues to access memory after it has been freed. This can lead to crashes, arbitrary code execution, or privilege escalation. Attackers exploit UAF by reallocating the freed memory with controlled data, allowing them to overwrite function pointers or critical program structures. Mitigations include pointer nullification, heap integrity checks, and modern runtime protections like AddressSanitizer (ASan).')">View Description</button>
+            </div>
+            <div class="problem-card">
+                <p>House of Spirit</p>
+                <button onclick="showModal('https://drive.google.com/file/d/1Qb7CWYuOo0pMTyWTVUT4d57eHpa1GT3N/preview', 'House of Spirit heap exploitation technique explained.')">Watch Animation</button>
+                <button onclick="showDescription('House of Spirit is a heap exploitation technique that abuses fake heap chunks to manipulate memory allocations. The attacker creates a fake heap chunk in a controlled memory region (e.g., .bss, .data, or stack) and tricks the program into calling free() on it. Once freed, the chunk is added to the free list, making it possible to redirect future malloc() allocations. This technique is effective in older heap implementations that lack modern integrity checks, allowing an attacker to achieve arbitrary code execution by overwriting function pointers or other critical memory structures.')">
+                    View Description
+                </button>
+                
+            </div>
+            <div class="problem-card">
+                <p>TLS</p>
+                <button onclick="showModal('https://drive.google.com/file/d/1-X9t-AwTMk-TyH43r_5Kq-egsyjXYAiP/preview', 'TLS.')">Watch Animation</button>
+                <button onclick="showDescription('TLS (Transport Layer Security) is a cryptographic protocol designed to provide secure communication over a computer network. It is the successor to SSL (Secure Sockets Layer) and ensures the confidentiality, integrity, and authentication of data exchanged between clients and servers. TLS operates by establishing a handshake process that involves key exchange, authentication, and encryption setup. It supports a variety of cryptographic algorithms, including AES for encryption, RSA or ECDSA for authentication, and SHA for hashing. The protocol is widely used in web browsing (HTTPS), email security, and VoIP communications to protect against eavesdropping, tampering, and message forgery.')">View Description</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="modalVideo" src=""></iframe>
+        <p id="modalDescription"></p>
+    </div>
+    
+    <div class="container section" id="contact">
+        <h1>Contact Me</h1>
+        <div class="contact-icons">
+            <a href="javascript:void(0);" onclick="copyEmail()">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="icon" alt="Email">
+            </a>
+            <a href="https://www.linkedin.com/in/yeudit-yudelevich-333552294/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="icon" alt="LinkedIn"></a>
+            <a href="https://github.com/YehuditYudelevich" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="icon" alt="GitHub"></a>
+        </div>
+    </div>
+</body>
+</html>
