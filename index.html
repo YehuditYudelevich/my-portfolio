@@ -121,7 +121,7 @@
             const modalDescription = document.getElementById("modalDescription");
     
             modal.style.display = "block";
-            modalVideo.style.display = "block"; // מבטיח שהווידאו יוצג
+            modalVideo.style.display = "block"; 
             modalVideo.src = videoUrl;
             modalDescription.textContent = description;
         }
@@ -132,7 +132,7 @@
             const modalDescription = document.getElementById("modalDescription");
     
             modal.style.display = "block";
-            modalVideo.style.display = "none"; // מסתיר את הווידאו אם תיאור נבחר
+            modalVideo.style.display = "none"; 
             modalDescription.textContent = description;
         }
     
@@ -141,11 +141,11 @@
             const modalVideo = document.getElementById("modalVideo");
     
             modal.style.display = "none";
-            modalVideo.src = ""; // עוצר את הסרטון כאשר סוגרים את החלון
-            modalVideo.style.display = "block"; // מבטיח שהווידאו יופיע מחדש בפעם הבאה
+            modalVideo.src = ""; 
+            modalVideo.style.display = "block"; 
         }
         function copyEmail() {
-        const email = "yehudity15@gmail.com"; // כתובת המייל שלך
+        const email = "yehudity15@gmail.com"; 
         navigator.clipboard.writeText(email).then(() => {
             alert("Email copied to clipboard!");
         }).catch(err => {
@@ -162,6 +162,7 @@
         <a href="#leetcode">LeetCode</a>
         <a href="#binary-exploits">Binary Exploits</a>
         <a href="#contact">Contact</a>
+        <a href="#algorithms">Algorithms</a>
     </div>
     <div class="container section" id="about">
         <h1>About Me</h1>
@@ -215,6 +216,28 @@
             </div>
         </div>
     </div>
+    <div class="container section" id ="algorithms">
+        <h1>Algorithms Animations</h1>
+        <div class="grid">
+            <div class="problem-card">
+                <p>Depth First Search (DFS)</p>
+                <button onclick="showModal('https://drive.google.com/file/d/1nY1jiwi87EIUb56EynvB9wt2FLJuxYVd/preview', 'DFS.')">Watch Animation</button>
+                <button onclick="showDescription('DFS is a graph traversal algorithm that explores as deep as possible before backtracking. It can be implemented using recursion or a stack and is useful for cycle detection, pathfinding, and topological sorting. Its time complexity is 𝑂(𝑉+𝐸), making it efficient for traversing connected components.')">View Description</button>
+            </div>
+            <div class="problem-card">
+                <p>Bellman Ford</p>
+                <button onclick="showModal('https://drive.google.com/file/d/1iORUqze9JZ3OS_IAtUODt8Ci9aCQv6d0/preview', 'Bellman Ford.')">Watch Animation</button>
+                <button onclick="showDescription('Bellman-Ford finds the shortest path from a single source to all vertices, even when negative weight edges exist. It relaxes all edges repeatedly (up to V−1 times) to guarantee the shortest paths and can detect negative weight cycles. Its time complexity is 𝑂(𝑉𝐸), making it less efficient than Dijkstra for graphs without negative edges.')">View Description</button>
+                
+            </div>
+            <div class="problem-card">
+                <p>Dijkstra</p>
+                <button onclick="showModal('https://drive.google.com/file/d/1hMxwKuZvQXhpyM7DMNcfB9E4m3nAyYNy/preview', 'Dijkstra')">Watch Animation</button>
+                <button onclick="showDescription('Dijkstra’s algorithm finds the shortest path from a single source to all other nodes in a weighted graph with non-negative edges. It uses a priority queue (min-heap) to iteratively select the node with the smallest known distance and update its neighbors. The time complexity is 𝑂(𝑉+𝐸log𝑉) using a priority queue with a Fibonacci or binary heap.')">View Description</button>
+        </div>
+    </div>
+    </div>
+
     <div class="container section" id="binary-exploits">
         <h1>Binary Exploits Animations</h1>
         <div class="grid">
