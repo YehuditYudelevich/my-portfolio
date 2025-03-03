@@ -152,6 +152,12 @@
             console.error("Failed to copy: ", err);
         });
         }
+        function showModal(url, title) {
+        var modalContent = '<iframe src="' + url + '" width="100%" height="600px"></iframe>';
+        var modalTitle = title;
+        alert(modalTitle + "\n\n" + "Click OK to view the document.");
+        window.open(url, '_blank');
+    }
 
     </script>
     
@@ -162,6 +168,7 @@
         <a href="#leetcode">LeetCode</a>
         <a href="#binary-exploits">Binary Exploits</a>
         <a href="#algorithms">Algorithms</a>
+        <a href="#pwn">pwn</a>
         <a href="#contact">Contact</a>
         
     </div>
@@ -259,6 +266,22 @@
                 <p>TLS</p>
                 <button onclick="showModal('https://drive.google.com/file/d/1-X9t-AwTMk-TyH43r_5Kq-egsyjXYAiP/preview', 'TLS.')">Watch Animation</button>
                 <button onclick="showDescription('TLS (Transport Layer Security) is a cryptographic protocol designed to provide secure communication over a computer network. It is the successor to SSL (Secure Sockets Layer) and ensures the confidentiality, integrity, and authentication of data exchanged between clients and servers. TLS operates by establishing a handshake process that involves key exchange, authentication, and encryption setup. It supports a variety of cryptographic algorithms, including AES for encryption, RSA or ECDSA for authentication, and SHA for hashing. The protocol is widely used in web browsing (HTTPS), email security, and VoIP communications to protect against eavesdropping, tampering, and message forgery.')">View Description</button>
+            </div>
+        </div>
+    </div>
+    <div class="container section" id="pwn">
+        <h1>Binary exploit</h1>
+        <div class="grid">
+            <div class="problem-card">
+                <p>Format String</p>
+                <button onclick="showModal('https://docs.google.com/gview?url=https://docs.google.com/document/d/1PjVZGYUgEhNDVrEHAYydXTqX6_D8xQmj/export?format=docx&embedded=true','format string')">View Word Document</button>
+                
+            </div>
+            <div class="problem-card">
+                <p>ROP</p>
+                
+                <button onclick="showModal('https://docs.google.com/gview?url=https://docs.google.com/document/d/1Ie0ZFBfsG1Cg3Oloxk0kracXSRETX0O5/export?format=docx&embedded=true','rop')">View Word Document</button>
+                
             </div>
         </div>
     </div>
